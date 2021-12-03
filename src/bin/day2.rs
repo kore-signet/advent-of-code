@@ -77,8 +77,16 @@ fn main() {
     let input = include_str!("../../day2.txt");
 
     let (horizontal, depth) = unsafe { submarine_sse(input.lines()) };
-    println!("non-simd: {}",easybench::bench_env(input.lines(), |l| submarine(l)));
-    unsafe { println!("simd: {}",easybench::bench_env(input.lines(), |l| submarine_sse(l))) };
+    println!(
+        "non-simd: {}",
+        easybench::bench_env(input.lines(), |l| submarine(l))
+    );
+    unsafe {
+        println!(
+            "simd: {}",
+            easybench::bench_env(input.lines(), |l| submarine_sse(l))
+        )
+    };
     // println!(
     //     "pt one: horizontal {} depth {} h x d {}",
     //     horizontal,
