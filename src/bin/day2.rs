@@ -76,7 +76,7 @@ fn submarine_part_two<'a>(iter: impl Iterator<Item = &'a str>) -> (i32, i32) {
 fn main() {
     let input = include_str!("../../day2.txt");
 
-    let (horizontal, depth) = unsafe { submarine_sse(input.lines()) };
+    let (_horizontal, _depth) = unsafe { submarine_sse(input.lines()) };
     println!(
         "non-simd: {}",
         easybench::bench_env(input.lines(), |l| submarine(l))
